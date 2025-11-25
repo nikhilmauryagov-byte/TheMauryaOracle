@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheMauryaOracle | Spiritual Guidance & Tarot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #4b0082; /* Indigo */
+            --accent-color: #FFD700; /* Gold */
+            --secondary-color: #9370DB; /* Medium Purple */
+            --text-color: #333;
+            /* Mystical Background Gradient */
+            --bg-gradient: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: rgba(75, 0, 130, 0.95);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* HERO HEADER */
+        header {
+            text-align: center;
+            padding: 120px 20px;
+            /* Placeholder for a Starry Background Image */
+            background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+            background-color: rgba(75, 0, 130, 0.5);
+            color: white;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            color: var(--accent-color);
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+        }
+
+        header p {
+            font-size: 1.5em;
+            font-style: italic;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2em;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #fff;
+            border-color: var(--accent-color);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+            border: 1px solid var(--accent-color);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: "✨";
+            font-size: 3em;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* SERVICES GRID */
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .center-title-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .service-img-placeholder {
+            height: 180px;
+            /* Mystical gradient background for card images */
+            background: linear-gradient(to bottom, #e6e6fa, #fff); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+        }
+
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #d35400;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* PAYMENT SECTION */
+        .payment-section {
+            background: linear-gradient(to right, #4b0082, #8A2BE2);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 80px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(75, 0, 130, 0.4);
+        }
+
+        .bank-details {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 30px;
+            border: 1px solid var(--accent-color);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        /* REVIEWS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .stars { color: #FFD700; letter-spacing: 2px; }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5em; }
+            .services-grid { grid-template-columns: 1fr; }
+            nav a { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Readings</a>
+        <a href="#payment">Payment</a>
+        <a href="#reviews">Reviews</a>
+    </nav>
+
+    <header id="home">
+        <h1>THEMAURYAORACLE</h1>
+        <p>A Gentle, Wise, and Mystical Companion on Your Soul’s Journey</p>
+        <br>
+        <a href="https://wa.me/917011137953?text=Hi%20TheMauryaOracle,%20I%20would%20like%20to%20book%20a%20reading." class="cta-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> Book Your Session
+        </a>
+    </header>
+
+    <div class="container">
+        
+        <section id="about" class="about-section">
+            <h2 style="color: var(--primary-color);">About TheMauryaOracle</h2>
+            
+            <p style="font-size: 1.15em; max-width: 800px; margin: 0 auto; color: #555;">
+                Namaste and welcome. I am <strong>Nikhil Maurya</strong>, the intuitive heart behind TheMauryaOracle. My journey is dedicated to bridging the gap between the earthly and the divine. With a heart open to Angelic whispers and hands guided by the Tarot, I act as a conduit for the messages you need to hear most.
+                <br><br>
+                I believe that Tarot is not just about predicting the future, but about illuminating the present so you can create the future you deserve. Whether you are standing at a crossroads in love, seeking divine purpose, or simply need a sign from the angels, I am here to be a gentle, wise, and mystical companion on your soul’s journey.
+            </p>
+
+            <div style="margin-top: 30px; padding: 15px; background: rgba(147, 112, 219, 0.1); border-radius: 10px; display: inline-block;">
+                <p><strong><i class="fas fa-video"></i> Readings Delivered Via:</strong> Video Call & Chat</p>
+            </div>
+            
+            <div style="font-size: 2.5em; margin-top: 20px; letter-spacing: 10px;">
+                ✨ 🪽 🔮 🌙
+            </div>
+        </section>
+
+        <div class="center-title-container">
+            <h2 class="section-title" id="services">Spiritual Offerings</h2>
+        </div>
+        
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-img-placeholder">🔮</div>
+                <div class="service-content">
+                    <h3>Single Card Reading</h3>
+                    <p>Focused insight for a specific question to gain instant clarity on a pressing matter.</p>
+                    <div class="price">₹ 1,000</div>
+                    <a href="https://wa.me/917011137953?text=I%20want%20to%20book%20a%20Single%20Card%20Reading" class="cta-button" style="padding: 10px 20px; font-size: 1em;">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-placeholder">❤️</div>
+                <div class="service-content">
+                    <h3>Relationship & Love Life</h3>
+                    <p>Navigate the landscape of your heart. Understand feelings, blocks, and future potential.</p>
+                    <div class="price">₹ 2,500</div>
+                    <a href="https://wa.me/917011137953?text=I%20want%20to%20book%20a%20Love%20Reading" class="cta-button" style="padding: 10px 20px; font-size: 1em;">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-placeholder">🪽</div>
+                <div class="service-content">
+                    <h3>Angelic Guidance</h3>
+                    <p>Connect with the loving wisdom of angels. Receive a direct, healing message from the divine.</p>
+                    <div class="price">₹ 3,500</div>
+                    <a href="https://wa.me/917011137953?text=I%20want%20to%20book%20Angelic%20Guidance" class="cta-button" style="padding: 10px 20px; font-size: 1em;">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-placeholder">✨</div>
+                <div class="service-content">
+                    <h3>Divine Life Direction</h3>
+                    <p>Deep spiritual growth session for life purpose, career path, and major life decisions.</p>
+                    <div class="price">₹ 5,000</div>
+                    <a href="https://wa.me/917011137953?text=I%20want%20to%20book%20Divine%20Guidance" class="cta-button" style="padding: 10px 20px; font-size: 1em;">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-placeholder">📅</div>
+                <div class="service-content">
+                    <h3>Yearly Forecast</h3>
+                    <p>A comprehensive reading charting the energies, cycles, and themes of your coming year.</p>
+                    <div class="price">₹ 8,000</div>
+                    <a href="https://wa.me/917011137953?text=I%20want%20to%20book%20a%20Yearly%20Forecast" class="cta-button" style="padding: 10px 20px; font-size: 1em;">Book Now</a>
+                </div>
+            </div>
+
+        </div>
+
+        <section id="payment" class="payment-section">
+            <h2><i class="fas fa-lock"></i> Secure Payment & Booking</h2>
+            <p>To confirm your session, please complete the payment via Bank Transfer or UPI.</p>
+            <p><strong>Step 1:</strong> Pay the amount. <strong>Step 2:</strong> Send screenshot to WhatsApp.</p>
+            
+            <div class="bank-details">
+                <h3 style="border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px;"><i class="fas fa-university"></i> Bank Transfer</h3>
+                <p><strong>Bank:</strong> Kotak Mahindra Bank</p>
+                <p><strong>Name:</strong> NIKHIL MAURYA</p>
+                <p><strong>Account No:</strong> 7713391715</p>
+                <p><strong>IFSC Code:</strong> KKBK0000261</p>
+                
+                <h3 style="border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; margin-top: 20px;"><i class="fab fa-google-pay"></i> Google Pay UPI</h3>
+                <p style="font-size: 1.3em; color: var(--accent-color); font-weight: bold;">nikhilkumarmaurya@oksbi</p>
+            </div>
+            <br><br>
+            <a href="https://wa.me/917011137953?text=I%20have%20made%20the%20payment,%20here%20is%20the%20screenshot." class="cta-button" style="background: white; color: var(--primary-color);">
+                <i class="fab fa-whatsapp"></i> Send Payment Screenshot
+            </a>
+        </section>
+
+        <div class="center-title-container">
+            <h2 class="section-title" id="reviews">Kind Words from Around the World</h2>
+        </div>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                <p>"The single card reading gave me the exact answer I needed. The energy was so pure! Highly recommended."</p>
+                <p><strong>- Sarah J., USA</strong></p>
+            </div>
+            <div class="review-card">
+                <p class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                <p>"Nikhil's angelic guidance brought tears to my eyes. A truly mystical experience that healed my heart."</p>
+                <p><strong>- Priya M., India</strong></p>
+            </div>
+            <div class="review-card">
+                <p class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                <p>"Spot on yearly prediction. The PDF report and video call were both excellent. I feel prepared for 2024."</p>
+                <p><strong>- Emily R., UK</strong></p>
+            </div>
+            <div class="review-card">
+                <p class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                <p>"Detailed and vibrant energy. Helped me fix my relationship issues with practical spiritual advice."</p>
+                <p><strong>- Rohan K., Dubai</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <h2>TheMauryaOracle</h2>
+        <p>Connecting you to the Divine.</p>
+        <p>WhatsApp: +91 70111-37953</p>
+        <p>&copy; 2024 TheMauryaOracle. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/917011137953" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
